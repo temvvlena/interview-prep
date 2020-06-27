@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Coding Interview University
 
 > I originally created this as a short to-do list of study topics for becoming a software engineer,
@@ -1984,3 +1985,6 @@ Sit back and enjoy. "Netflix and skill" :P
 ## LICENSE
 
 [CC-BY-SA-4.0](./LICENSE.txt)
+=======
+# interview-prep
+>>>>>>> cb55871... Initial commit
