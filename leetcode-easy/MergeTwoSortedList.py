@@ -4,7 +4,7 @@ class ListNode:
         self.val = val
         self.next = next
 class Solution:
-    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def mergeTwoLists(self, l1, l2) :
         # Dummy-ыг заавал хадгалж байж тухайн холбогдсон листийг алдахгүй барих болно
         # cur гэдэг нь Dummy Толгойг түүний сүүлтэй холбож өгөхөд ашиглана
         
