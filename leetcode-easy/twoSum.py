@@ -1,11 +1,18 @@
 # Two Sum
 def twoSum(nums, target):
-    h = {}
-    for i, num in enumerate(nums):
-        n = target - num
-        if n not in h:
-            h[num] = i
+    # Using Dictionary
+    myDictionary = dict()
+    for i in range(len(nums)):
+        t = target - nums[i]
+        if nums[i] in myDictionary:
+            return [myDictionary[nums[i]],i]
         else:
-            return [h[n], i]
+            myDictionary[t] = i
 
-print(twoSum([3,2,3], 6))
+    #Brute Force
+    for i in range(len(nums)):
+        for k in range(i + 1, len(nums)):
+            mySum = nums[i] + nums[k]
+            if mySum == target:
+                return [i, k]
+# print(twoSum([3,2,3], 6))
