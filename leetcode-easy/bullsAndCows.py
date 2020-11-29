@@ -30,6 +30,6 @@ class Solution:
         for i in guess:
             
 
-calling = Solution()
+# calling = Solution()
 print(calling.getHint(1807, 7810))
         

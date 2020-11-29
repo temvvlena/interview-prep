@@ -1,5 +1,5 @@
 class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
+    def productExceptSelf(self, nums)
         
         # Multiply the list from both sides: left and right
         # Then multiply them again

@@ -1,5 +1,5 @@
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
+    def maxSubArray(self, nums) -> int:
         # This is Kadane's Algorithm. O(n) Linear
         max_global, max_current = nums[0], nums[0]
         for i in range(1, len(nums)):

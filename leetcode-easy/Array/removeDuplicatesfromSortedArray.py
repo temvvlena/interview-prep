@@ -1,5 +1,5 @@
 # 2 cursor ашиглан энэ бодлогыг бодож болно.
-def removeDuplicates(self, nums: List[int]) -> int:
+def removeDuplicates(self, nums) -> int:
 
     tmp = 1
 
