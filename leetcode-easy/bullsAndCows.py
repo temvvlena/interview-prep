@@ -22,6 +22,9 @@
 
 # Explanation: The 1st 1 in friend's guess is a bull, the 2nd or 3rd 1 is a cow.
 
+## Not FINISHED
+
+
 class Solution:
     def getHint(self, secret, guess):
         for i in guess:
