@@ -28,8 +28,8 @@
 class Solution:
     def getHint(self, secret, guess):
         for i in guess:
-            
+            pass
 
 # calling = Solution()
-print(calling.getHint(1807, 7810))
+# print(calling.getHint(1807, 7810))
         

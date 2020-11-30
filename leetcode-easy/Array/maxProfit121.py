@@ -11,7 +11,7 @@ Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-
 # else, update the min value
 
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
+    def maxProfit(self, prices) -> int:
         ans = 0
         if not prices:
             return 0
