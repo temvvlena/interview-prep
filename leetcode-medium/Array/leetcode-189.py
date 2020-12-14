@@ -31,18 +31,19 @@ class Solution:
 
         nums[:] = a
         return nums
-
+"""
 class Solution:
     def rotate(self, nums, k):
-        """
+        
         Do not return anything, modify nums in-place instead.
         Input: nums = [1,2,3,4,5,6,7], k = 3
         Output: [5,6,7,1,2,3,4]
-        """
+      
         for i in range(k):
             temp = nums[-1]
             nums.insert(0, nums[-1])
             nums.pop()
         return nums
+"""
             
         
