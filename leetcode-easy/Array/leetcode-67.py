@@ -12,5 +12,10 @@ Output: "10101"
 """
 class Solution:
     def addBinary(self, a, b):
-        pass
+        x, y = int(a, 2), int(b, 2)
+        while y:
+            addition = a ^ b
+            carry = (a & b) << 1
+            x, y = addition, carry
+        return bin(x)[2:]
         
