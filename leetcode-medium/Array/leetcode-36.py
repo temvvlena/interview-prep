@@ -1,9 +1,10 @@
 
 def isValidSudoku(board):
     # init data
-        rows = [{} for i in range(9)]
-        columns = [{} for i in range(9)]
-        boxes = [{} for i in range(9)]
+        for i in range(9):
+            rows.append({})
+            columns.append({})
+            boxes.append({})
 
         # validate a board
         for i in range(9):
