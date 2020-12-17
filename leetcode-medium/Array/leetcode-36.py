@@ -1,6 +1,7 @@
 
 def isValidSudoku(board):
     # init data
+    rows, columns, boxes = [], [], []
         for i in range(9):
             rows.append({})
             columns.append({})
