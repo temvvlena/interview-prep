@@ -25,7 +25,7 @@ Output: 4
 """
 class Solution:
     def numTeams(self, rating):
-        
+        pass 
     """
     Rating:  [2, 5, 3, 4, 1]
     Indexes: [0, 1, 2, 3, 4]
@@ -36,7 +36,6 @@ class Solution:
 
     """
     # Precalculations
-    pass 
-    
+   
         
         
