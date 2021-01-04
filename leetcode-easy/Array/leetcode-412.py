@@ -49,19 +49,18 @@ class Solution:
             else:
                 myList.append(str(i))
         return myList
-        """
-        # More Dynamic
-        myList = []
-        fizz_buzz_dict = {3 : "Fizz", 5 : "Buzz"}
-        for i in range(1, n+1):
-            num_ans_str = ""
-            for key in fizz_buzz_dict.keys():
-                if i % key == 0:
-                    num_ans_str += fizz_buzz_dict[key]
-            if not num_ans_str:
-                num_ans_str = str(i)
-            
-            myList.append(num_ans_str)
-        return myList
-        """
+"""
+# More Dynamic
+myList = []
+fizz_buzz_dict = {3 : "Fizz", 5 : "Buzz"}
+for i in range(1, n+1):
+    num_ans_str = ""
+    for key in fizz_buzz_dict.keys():
+        if i % key == 0:
+            num_ans_str += fizz_buzz_dict[key]
+    if not num_ans_str:
+        num_ans_str = str(i)
+    myList.append(num_ans_str)
+return myList
+"""
         
