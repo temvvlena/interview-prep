@@ -20,6 +20,7 @@ class Solution:
         head.next.next = head
         head.next = None
         return p
+    # Time and Space Complexity O(N)
     # Both works     
     def reverseListAnother(self, head, prev=None):   
         if not head:
