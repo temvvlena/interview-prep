@@ -7,10 +7,10 @@ Input: head = [1,2,3,3,4,4,5]
 Output: [1,2,5]
 """
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 class Solution:
     def deleteDuplicates(self, head):
         # Time and Space O(n)
@@ -50,4 +50,20 @@ class Solution:
             head = head.next
             
         return sentinel.next
+
+"""
+For Debugging purpose
+a = ListNode(1)
+b = ListNode(2)
+c = ListNode(4)
+d = ListNode(4)
+e = ListNode(4)
+j = ListNode(5)
+a.next = b
+b.next = c
+c.next = d
+d.next = e
+e.next = j
+print(ListNode.deleteDuplicates(a, a))
+"""
         
