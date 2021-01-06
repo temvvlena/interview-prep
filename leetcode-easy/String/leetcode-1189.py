@@ -1,4 +1,3 @@
-import collections
 """
 Maximum Number of Balloons
 https://leetcode.com/problems/maximum-number-of-balloons/
@@ -19,6 +18,7 @@ Example 3:
 Input: text = "leetcode"
 Output: 0
 """
+import collections
 class Solution:
     def maxNumberOfBalloons(self, text):
         # Solution 1. Time is O(N) and Space is Constant
@@ -38,4 +38,3 @@ class Solution:
                 else: total = MAX_VALUE
         if total == MAX_VALUE: return 0
         else: return total
-     
