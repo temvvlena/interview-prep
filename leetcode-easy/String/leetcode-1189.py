@@ -18,13 +18,14 @@ Example 3:
 Input: text = "leetcode"
 Output: 0
 """
-import collections
+#import collections
 class Solution:
     def maxNumberOfBalloons(self, text):
         # Solution 1. Time is O(N) and Space is Constant
-        # return min(text.count('b'), text.count('a'), text.count('l') // 2, text.count('o') // 2, text.count('n'))
+        return min(text.count('b'), text.count('a'), text.count('l') // 2, text.count('o') // 2, text.count('n'))
         
         # Solution 2. Time and Space Complexity O(N)
+        """
         MAX_VALUE = 1430
         balloon = "balloon"
         text_map = collections.Counter(text)
@@ -38,3 +39,4 @@ class Solution:
                 else: total = MAX_VALUE
         if total == MAX_VALUE: return 0
         else: return total
+        """
