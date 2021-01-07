@@ -31,14 +31,14 @@ class Solution:
             n0, n1, n2 = n1, n2, addition
             i += 1
         return n2
-        """
-        Big O (N) --> Time and Space
-        # Merge Sort and Quick Sort
-        if n in self.caches:
-            return self.caches[n]
-        if n == 0: return 0
-        if n == 1 or n == 2: return 1
-        a = (self.tribonacci(n-3) + self.tribonacci(n-2) + self.tribonacci(n-1))
-        self.caches[n] = a
-        return a
-        """
+"""
+Big O (N) --> Time and Space
+# Merge Sort and Quick Sort
+if n in self.caches:
+    return self.caches[n]
+if n == 0: return 0
+if n == 1 or n == 2: return 1
+a = (self.tribonacci(n-3) + self.tribonacci(n-2) + self.tribonacci(n-1))
+self.caches[n] = a
+return a
+"""

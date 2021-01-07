@@ -34,19 +34,19 @@ class Solution:
         else:
             if temp>=0: return rev
             else: return (-1*rev)
-        """
-        # Time Complexity & Space LogN
-        if x == 0: return 0
-        convertingString = str(x)
-        negativeNumber = False
-        if convertingString[0] == "-":
-            negativeNumber = True
-            convertingString = convertingString[1:]
-        convertingString = convertingString[::-1]
-        convertingInteger = int(convertingString)
-        if negativeNumber: 
-            convertingInteger = convertingInteger * - 1
-            if convertingInteger > 2 ** 31 -1 or convertingInteger < -2 ** 31: return 0
-        if convertingInteger > 2 ** 31 -1 or convertingInteger < -2 ** 31: return 0
-        return convertingInteger
-        """
+"""
+# Time Complexity & Space LogN
+if x == 0: return 0
+convertingString = str(x)
+negativeNumber = False
+if convertingString[0] == "-":
+    negativeNumber = True
+    convertingString = convertingString[1:]
+convertingString = convertingString[::-1]
+convertingInteger = int(convertingString)
+if negativeNumber: 
+    convertingInteger = convertingInteger * - 1
+    if convertingInteger > 2 ** 31 -1 or convertingInteger < -2 ** 31: return 0
+if convertingInteger > 2 ** 31 -1 or convertingInteger < -2 ** 31: return 0
+return convertingInteger
+"""
