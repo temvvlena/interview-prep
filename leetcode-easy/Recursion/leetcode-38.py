@@ -29,12 +29,12 @@ countAndSay(4) = say "21" = one 2 + one 1 = "12" + "11" = "1211"
 class Solution:
     def countAndSay(self, n):
         if n == 1: return '1'
-        a1 = self.countAndSay(n - 1)
-        counter, res = 1, ''
-        for i in range(1, len(a1)):
-            if a1[i] == a1[i-1]: counter += 1
-            else: 
-                res = res + str(counter) + a1[i-1]
+        res = self.countAndSay(n-1)
+        counter, out = 1, ''
+        for i in range(1, len(res)):
+            if res[i] == res[i-1]: counter += 1
+            else:
+                out += str(counter) + res[i-1]
                 counter = 1
-        res += str(counter) + a1[-1]
-        return res
+        out += str(counter) + res[-1]
+        return out
