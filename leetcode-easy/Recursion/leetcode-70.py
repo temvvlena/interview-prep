@@ -29,3 +29,16 @@ class Solution:
         self.cache[n] = result
         return result
     # Big O(n)
+    """
+    Time O(N) and Space O(1)
+    if n == 1: return 1
+    x, y = 0, 1
+    for i in range(0, n): x, y = y, x + y
+    return y
+
+
+    # Formula time complexity O(Logn) and Space complexity(1)
+    sqrt5 = sqrt(5)
+    fibn = pow(((1+sqrt5)/2), n+1)-pow(((1-sqrt5)/2), n+1)
+    return int(fibn/sqrt5)
+    """
