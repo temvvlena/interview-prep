@@ -48,20 +48,17 @@ class Solution:
         """
         BFS
         if root is None: return []
-        q = deque()
-        q.append(root)
         res = []
+        q = deque([root])
         while q:
             temp = []
             for _ in range(len(q)):
-                current = q.popleft()
-                if current.left:
-                    q.append(current.left)
-                if current.right: 
-                    q.append(current.right)     
-                temp.append(current.val)
+                node = q.popleft()
+                temp.append(node.val)
+                if node.left: q.append(node.left)
+                if node.right: q.append(node.right)
             res.append(temp)
-        return(res[::-1])
+        return res[::-1
         """
         
             
