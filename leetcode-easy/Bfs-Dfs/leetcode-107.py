@@ -58,7 +58,7 @@ class Solution:
                 if node.left: q.append(node.left)
                 if node.right: q.append(node.right)
             res.append(temp)
-        return res[::-1
+        return res[::-1]
         """
         
             
