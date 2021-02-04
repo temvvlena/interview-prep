@@ -41,4 +41,3 @@ class Solution:
         """
         return s in (s+s)[1:-1]
     
-        
