@@ -12,7 +12,7 @@ m == matrix.length
 n == matrix[i].length
 1 <= m, n <= 10
 -100 <= matrix[i][j] <= 100
-Time O(n*m) and Space (1)
+Time O(n*m) and Space (n*m) used an auxiliary array of size 
 """
 
 class Solution:
