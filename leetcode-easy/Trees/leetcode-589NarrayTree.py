@@ -24,21 +24,24 @@ class Node:
 
 class Solution:
     def preorder(self, root):                 
-        
         if root is None: return []
-        stack, res = [root, ], []
-        while stack:
-            root = stack.pop()
-            res.append(root.val)
-            stack.extend(root.children[::-1])
+        res = []
+        res.append(root.val)
+        children = root.children
+        for i in range(len(children)): 
+            temp = self.preorder(children[i])
+            for i in temp: res.append(i)
         return res
         """
-        def _preorder(root):
-            if root:
-                res.append(root.val)
-                for i in root.children:
-                    _preorder(i)
-        res = []
-        _preorder(root)
+        if root is None: return []
+        myStack, res = [root], []
+        while myStack:
+            cur = myStack.pop()
+            res.append(cur.val)
+            children = cur.children
+            myLength = len(children) - 1
+            while myLength >= 0:
+                myStack.append(children[myLength])
+                myLength -= 1
         return res
         """
