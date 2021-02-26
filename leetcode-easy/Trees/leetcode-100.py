@@ -39,7 +39,6 @@ class Solution:
         if q is None and p is None: return True
         if p.val != q.val: return False
         return self.isSameTree(p.right, q.right) and self.isSameTree(p.left, q.left)  
-        
         """
         if p is None and q: return False
         if q is None and p: return False
