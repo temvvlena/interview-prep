@@ -21,12 +21,58 @@ It's guaranteed that the values of the tree are unique.
 #         self.val = x
 #         self.left = None
 #         self.right = None
-# Time O(H) and Space O(1)
+
+
 class Solution:
+    
     def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
-        res = None
-        while root:
-            if root.val > p.val: res, root = root, root.left
-            else: root = root.right
-        return res
-         
+        """
+        [[5,3,6,2,4,null,null,1]]
+        """
+        if root.left is None and root.right is None: return None
+        stack = [root]
+        found = False
+        while stack:
+            cur = stack[-1]
+            while cur.left:
+                res = cur
+                stack.append(cur.left)
+                cur = cur.left
+                res.left = None
+            temp = stack.pop()
+            if found is True:
+                return temp
+            if temp.val == p.val: 
+                found = True
+            if temp.right:
+                stack.append(temp.right)
+        return None
+    """
+    O(N)
+    def __init__(self):
+        self.found = False
+    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
+        if root.left is None and root.right is None: return None
+        res = []
+        def helper(myTree):
+            if not myTree:
+                return 
+            helper(myTree.left)
+            if self.found is True:
+                res.append(myTree)
+                return
+            if myTree.val == p.val: 
+                self.found = True
+            helper(myTree.right)
+        helper(root)
+        if len(res) != 0:
+            return res[0]
+        return None
+        # Solution 3
+        def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
+            res = None
+            while root:
+                if root.val > p.val: res, root = root, root.left
+                else: root = root.right
+            return res
+        """
