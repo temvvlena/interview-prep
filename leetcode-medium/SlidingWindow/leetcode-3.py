@@ -45,3 +45,29 @@ class Solution:
         for i in res:
             maxLength = max(maxLength, len(i))
         return maxLength
+    
+        """
+        abcadcbb -> adcb
+              ^
+        {a:3, b:7, c:5, d:1}
+        left = 0
+        right = 0
+        
+        abcabcbb
+           ^ 
+        {a:1, b:2, c:3, a:4}
+               ^         ^
+        Time and Space O(N)
+        
+        right = 0
+        left = 0
+        myHash = {}
+        res = 0
+        while right <= len(s)-1:
+            if s[right] in myHash: 
+                left = max(myHash[s[right]], left)
+            res = max(res,right-left+1)
+            myHash[s[right]]=right+1
+            right += 1
+        return res
+        """
