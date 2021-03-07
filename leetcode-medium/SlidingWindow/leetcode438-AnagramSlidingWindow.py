@@ -23,6 +23,9 @@ Explanation:
 The substring with start index = 0 is "ab", which is an anagram of "ab".
 The substring with start index = 1 is "ba", which is an anagram of "ab".
 The substring with start index = 2 is "ab", which is an anagram of "ab".
+Time complexity: O(lengofS and lengthofP) since it's one pass along both strings.
+
+Space complexity: O(1), because pCount and sCount contain 26 elements each.
 """
 from collections import Counter
 class Solution:
