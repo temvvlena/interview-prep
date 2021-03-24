@@ -9,7 +9,16 @@ Input: [3,1,2,4]
 Output: [2,4,3,1]
 The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
 """
-
+# Time O(n) and Space O(1)
+class Solution:
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        slow = 0 
+        for i in range(len(nums)):
+            if nums[i]%2==0:
+                nums[slow], nums[i]=nums[i], nums[slow]
+                slow += 1
+        return nums
+# Time and Space O(n)
 class Solution:
     def sortArrayByParity(self, A):
         myList = list()
