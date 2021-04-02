@@ -21,7 +21,6 @@ n == height.length
 2 <= n <= 105
 0 <= height[i] <= 104
 """
-
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         # Time complexity O(N) and Space complexity O(1)
