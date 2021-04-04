@@ -1,0 +1,13 @@
+from collections import Counter
+class Solution:
+    def canPermutePalindrome(self, s: str) -> bool:
+        myHash = Counter(s)
+        # for i in range(len(s)):
+        #     if s[i] == " ": continue
+        #     if s[i] not in myHash: myHash[s[i]] = 1
+        #     else: myHash[s[i]] += 1
+        counter = 0
+        for aValue in myHash.values():
+            if aValue % 2 != 0: counter += 1
+        return counter < 2        
+        
