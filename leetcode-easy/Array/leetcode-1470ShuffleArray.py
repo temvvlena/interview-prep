@@ -17,6 +17,20 @@ Output: [1,2,1,2]
 # Time and Space Complexity (N)
 class Solution:
     def shuffle(self, nums, n):
+        right = n
+        res = []
+        i = 0
+        while i <= len(nums)-1 and right <= len(nums)-1:
+        
+            res.append(nums[i])
+            res.append(nums[right])
+            
+            right += 1
+            i += 1
+        return res
+
+class Solution:
+    def shuffle(self, nums, n):
         myList = []
         for i in range(n):
             myList.append(nums[i])
