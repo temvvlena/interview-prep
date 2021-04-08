@@ -22,6 +22,24 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
+        r = set()
+        c = set()
+        
+        for row in range(len(matrix)):
+            for col in range(len(matrix[0])):
+                if matrix[row][col] == 0:
+                    r.add(row)
+                    c.add(col)
+        """
+        r = {1}
+        c = {1}
+        """
+        for row in range(len(matrix)):
+            for col in range(len(matrix[0])):
+                if row in r or col in c: matrix[row][col]=0
+
+"""
+    def setZeroes(self, matrix: List[List[int]]) -> None:
         for row in range(len(matrix)):
             for col in range(len(matrix[0])):
                 if matrix[row][col] == 0:
@@ -36,3 +54,4 @@ class Solution:
                     for i in range(len(matrix)):
                         if matrix[i][col] != "0":
                             matrix[i][col] = 0
+"""
