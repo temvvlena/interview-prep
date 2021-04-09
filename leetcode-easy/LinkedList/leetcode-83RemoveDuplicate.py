@@ -17,6 +17,26 @@ Output: [1,2,3]
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head):
+        #1 -> 2 -> 3
+        current = head
+        while current and current.next:
+            if current.next.val == current.val:
+                current.next = current.next.next
+            else: current = current.next
+        return head
+        """
+        # Solved in April
+        if not head: return head
+        cur = head
+        while cur and cur.next:
+            temp = cur.next
+            while temp and cur.val == temp.val:
+                temp = temp.next     
+            cur.next = temp
+            cur = cur.next
+        return head
+        
+        # Solved in January
         curr = head
         if head is None: return 
         while curr.next:
@@ -25,3 +45,4 @@ class Solution:
                 curr.next = newValue
             else: curr = curr.next
         return head
+        """
