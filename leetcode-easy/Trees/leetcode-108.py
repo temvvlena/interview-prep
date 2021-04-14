@@ -19,19 +19,19 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
  Time and Space O(N)
 """
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
-        def getTree(left, right):
-            res = TreeNode()
-            if left > right: return None
-            mid = (left+right)//2
-            res.val = nums[mid]
-            res.left = getTree(left, mid-1)
-            res.right = getTree(mid+1, right)
-            return res
-        return getTree(0, len(nums)-1)
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        
+def sortedArrayToBST(nums):
+    def getTree(left, right):
+        res = TreeNode()
+        if left > right: return None
+        mid = (left+right)//2
+        res.val = nums[mid]
+        res.left = getTree(left, mid-1)
+        res.right = getTree(mid+1, right)
+        return res
+    return getTree(0, len(nums)-1)
