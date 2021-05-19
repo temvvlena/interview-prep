@@ -5,7 +5,7 @@ x can appear anywhere in the "right partition"; it does not need to appear betwe
 the left and right partitions. The additional spacing the example below indicates the 
 partition.)
 EXAMPLE
-Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 [parition = 5]
+Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 [partition = 5]
 Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 """
 
