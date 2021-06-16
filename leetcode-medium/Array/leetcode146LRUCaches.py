@@ -31,22 +31,20 @@ Constraints:
 0 <= value <= 104
 At most 3 * 104 calls will be made to get and put.
 """
-from collections import OrderedDict
-class LRUCache(OrderedDict):
+class LRUCache():
     def __init__(self, capacity: int):
         self.capacity = capacity
+        self.myDict = collections.OrderedDict()
     def get(self, key: int) -> int:
-        if key not in self: return -1
-        # if sees the item just put the thing in the last
-        self.move_to_end(key)
-        return self[key]
+        if key not in self.myDict: return -1
+        self.myDict.move_to_end(key)
+        return self.myDict[key]
     def put(self, key: int, value: int) -> None: 
-        if key in self:
-            self.move_to_end(key)
-        # Here it will add [1,1], [2, 2], [3,3]. However, once it reaches 3,3 it will pop 1.1
-        self[key]=value
-        if len(self) > self.capacity:
-            self.popitem(last=False)
+        if key in self.myDict:
+            self.myDict.move_to_end(key)
+        self.myDict[key]=value
+        if len(self.myDict) > self.capacity:
+            self.myDict.popitem(last=False)
 """
 capacity 2
 (1)->(2)->
