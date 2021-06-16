@@ -65,24 +65,22 @@ class Solution:
         if direction != 0: return True
         return False
         """
-        myList = [[0, 1], [1, 0], [0, -1], [-1, 0]]
-        direction = 0
-        position = [0, 0]
+        #          north  right  down    left
+        myList = [[0,1], [1,0], [0,-1],[-1,0]]
+        pos = [0,0]
+        face = 0
         for i in range(len(instructions)):
             if instructions[i] == "G":
-                position[0] += myList[direction][0]
-                position[1] += myList[direction][1]
+                pos[0] += myList[face][0]
+                pos[1] += myList[face][1]
             if instructions[i] == "L":
-                if direction == 0:
-                    direction = 3
-                else: 
-                    direction -= 1
+                if face == 0:
+                    face = 3
+                else: face -= 1
             if instructions[i] == "R":
-                if direction == 3:
-                    direction = 0 
-                else: 
-                    direction += 1
-        if position == [0,0]: return True
-        if direction != 0: return True
-        return False 
+                if face == 3:
+                    face = 0
+                else: face += 1
+        if pos == [0,0] or face != 0: return True
+        else: return False
         """
