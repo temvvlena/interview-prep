@@ -8,3 +8,8 @@ Input:
     dependencies: (a,d), (f, b), (b,d),(f,a), (d,c)
 Output: f, e, a, b, d, c
 """
+
+def buildOrder(projects, dependencies):
+    print(projects, dependencies)
+
+print(buildOrder(['a', 'b', 'c', 'd', 'e', 'f'], [['a', 'd'], ['f', 'b'], ['b', 'd'], ['f', 'a'], ['d', 'c']]))
