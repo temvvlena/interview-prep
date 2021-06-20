@@ -10,7 +10,6 @@ Output: f, e, a, b, d, c
 Output: f, e, b, a, d, c
 """
 from collections import defaultdict
-
 adjacency_list = defaultdict()
 adjacency_list['a'] = 'd'
 adjacency_list['f'] = 'b'
@@ -19,7 +18,6 @@ adjacency_list['f'] = 'a'
 adjacency_list['d'] = 'c'
 adjacency_list['c'] = []
 adjacency_list['e'] = []
-
 visited_list = defaultdict()
 visited_list['a'] = False
 visited_list['b'] = False
