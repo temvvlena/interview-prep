@@ -26,9 +26,11 @@ visited_list['d'] = False
 visited_list['e'] = False
 visited_list['f'] = False
 
+print(adjacency_list)
 def buildOrder(vertex):
     if not visited_list[vertex]:
         visited_list[vertex] = True
+        print(adjacency_list[vertex])
         for neighbor in adjacency_list[vertex]:
             buildOrder(neighbor)
         res.insert(0, vertex)
@@ -36,4 +38,4 @@ def buildOrder(vertex):
 res = []
 for vertex in visited_list:
     buildOrder(vertex)
-print(res)
+#print(res)
