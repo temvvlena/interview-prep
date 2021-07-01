@@ -23,7 +23,13 @@ Input: height = [1,2,1]
 Output: 2
 """
 class Solution:
-    def maxArea(self, height):
-        # This is divide and conquer kinda problem, I bet
-        # I have to find the largest area. 
-        pass
+    def maxArea(self, height: List[int]) -> int:
+        left, right, maxArea = 0, len(height) - 1, 0
+        while right>left:
+            maxArea = max(maxArea, min(height[right], height[left]) * (right-left))
+            if height[right] > height[left]:
+                left += 1
+            else:
+                right -= 1
+        return maxArea
+        
