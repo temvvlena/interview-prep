@@ -16,7 +16,7 @@ Input: s = "DDI"
 Output: [3,2,0,1]
 """
 class Solution:
-    def diStringMatch(self, s: str) -> List[int]:
+    def diStringMatch(self, s: str):
         stack = []
         n = len(s)
         index = 0
