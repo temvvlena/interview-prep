@@ -29,7 +29,7 @@ Explanation: The node with value 7 is invalid, so remove it and the node underne
 #         self.right = right
 from collections import deque
 class Solution:
-    def correctBinaryTree(self, root: TreeNode) -> TreeNode:
+    def correctBinaryTree(self, root):
         q = deque([(root, None)])
         seen = set()
         while q:
