@@ -6,28 +6,21 @@ Space Complexity: O(1).
 """
 
 class Solution:
-    def isAlienSorted(self, words, order) :
-        myDictionary = dict()
-        for i in range(len(order)):
-            myDictionary[order[i]] = i
-        
-        for i in range(len(words) - 1):
-            word1 = words[i]
-            word2 = words[i+1]
-
-            # Find the first difference word1[k] != word2[k].
-            for k in range(min(len(word1), len(word2))):
-                # If they compare badly, it's not sorted.
-                if word1[k] != word2[k]:
-                    if myDictionary[word1[k]] > myDictionary[word2[k]]:
-                        return False
-                    break
-            else:
-                # If we didn't find a first difference, the
-                # words are like ("app", "apple").
-                if len(word1) > len(word2):
-                    return False
-
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        myHash = {}
+        for i in range(len(order)): myHash[order[i]] = i
+        def helper(word1, word2):
+            index = 0
+            while index <= len(min(word1, word2))-1:
+                if myHash[word1[index]] > myHash[word2[index]]: return False 
+                if myHash[word1[index]] < myHash[word2[index]]: return True  
+                index += 1
+            if index < len(word1): return False
+            return True
+        firstPointer = 0
+        while firstPointer < len(words)-1:
+            if helper(words[firstPointer], words[firstPointer+1]) is False: return False
+            firstPointer += 1
         return True
                           
         
