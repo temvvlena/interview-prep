@@ -37,6 +37,8 @@ temp = -15
 10 > 15
 15 < 10
 """
+
+
 class Solution:
     def asteroidCollision(self, asteroids):
         res = []
@@ -50,4 +52,4 @@ class Solution:
                 elif res[-1] == -temp:
                     res.pop()
             # If left > right, right < left, right == left
-        return res         
+        return res
