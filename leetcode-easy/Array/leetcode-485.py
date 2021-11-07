@@ -15,7 +15,19 @@ Constraints:
 nums[i] is either 0 or 1.
 """
 
-# Time and Space is O(N). Bruto Force Solution
+# Author's Solution
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        count = max_count = 0 
+        for num in nums:
+            if num == 1:
+                count += 1
+            else:
+                max_count = max(max_count, count)
+                count = 0 
+        return max(max_count, count)
+
+# Time and Space is O(N). Bruto Force Solution. My Solution
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         if len(nums) == 1:
