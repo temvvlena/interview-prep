@@ -28,20 +28,15 @@ Output: 0
 """
 
 class Solution:
-    def searchInsert(self, nums, target):
-        """
-        Time Complexity: Log(N)
-        Space Complexity: O(1)
-        """
-        low, high, pos = 0, len(nums) -1, 0
-        while low <= high:   
-            mid = (low + high) // 2
-            if nums[mid] == target: return mid
-            elif target > nums[mid]: 
-                low = mid + 1
-                pos = mid + 1
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        left, right = 0, len(nums)-1
+        while left<=right:
+            mid = (left+right)//2
+            if nums[mid] == target:
+                return mid
+            if nums[mid] > target:
+                right = mid-1 
             else:
-                high = mid - 1
-                pos = mid
-        return pos
+                left = mid+1
+        return left
         
