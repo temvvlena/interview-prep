@@ -16,6 +16,22 @@ Input: numbers = [-1,0], target = -1
 Output: [1,2]
 Time O(N) and Space O(1)
 """
+
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        """
+        {2:0,}
+        """
+        myDict = {}
+        for i in range(len(numbers)):
+            temp = target-numbers[i]
+            if temp not in myDict:
+                myDict[numbers[i]] = i+1
+            else:
+                return [myDict[temp], i+1]
+
+
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         left, right = 0, len(nums)-1
