@@ -20,15 +20,16 @@ Input: boxTypes = [[5,10],[2,5],[4,7],[3,9]], truckSize = 10
 Output: 91
 """
 
+
 class Solution:
     def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
         """
         [1,3],[2,2],[3,1] -> 4
-        
+
         [3,1],[2,2],[1,3]
-        
+
         3+4+1=8
-        
+
         [5,10],[2,5],[4,7],[3,9] -> 10
         [2,5],[4,7],[3,9],[5,10]
         [5,10][3,9][4,7][2,5]
@@ -37,13 +38,31 @@ class Solution:
                     85   
         Time Complexity is NLogN and Space Complexity is Constant
         """
-        boxTypes, res = sorted(boxTypes, key=lambda x: x[1], reverse=True), 0
-        for i in range(len(boxTypes)):
-            if truckSize >= boxTypes[i][0]:
+        boxTypes = sorted(boxTypes, key=lambda x: x[1], reverse=True)
+        res = 0
+        i = 0
+        while i <= len(boxTypes) - 1 and truckSize > 0:
+            if boxTypes[i][0] <= truckSize:
+                res += (boxTypes[i][1]*boxTypes[i][0])
                 truckSize -= boxTypes[i][0]
-                res += (boxTypes[i][0]*boxTypes[i][1])
-            elif truckSize < boxTypes[i][0]:
+            else:
                 res += (truckSize*boxTypes[i][1])
                 truckSize = 0
-            else: return res
+            i += 1
+        return res
+
+# Solution using priority queue
+    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+        boxTypes = [[-j, i] for i, j in boxTypes]
+        heapq.heapify(boxTypes)
+        res = 0
+        while boxTypes:
+            u, b = heapq.heappop(boxTypes)
+            u = abs(u)
+            if truckSize >= b:
+                res += (u*b)
+                truckSize -= b
+            else:
+                res += (u*truckSize)
+                break
         return res
