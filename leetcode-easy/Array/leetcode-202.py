@@ -25,34 +25,63 @@ Output: false
 """
 class Solution:
     def isHappy(self, n: int) -> bool:
-        # Time LogN and Space LogN
-        def next_number(n):
-            mySum = 0
-            while n > 0:
-                n, digit = divmod(n, 10)
-                mySum += digit ** 2
-            return mySum
-        seen = set()
-        while n != 1 and n not in seen:
-            seen.add(n)
-            n = next_number(n)
+
+        cycle_members = {4, 16, 37, 58, 89, 145, 42, 20}
+
+        def get_next(number):
+            total_sum = 0
+            while number > 0:
+                number, digit = divmod(number, 10)
+                total_sum += digit ** 2
+            return total_sum
+
+        while n != 1 and n not in cycle_members:
+            n = get_next(n)
+
         return n == 1
-    
-    
-        """
-        # Time LogN and Space 1
-        def next_number(n):
-            mySum = 0
-            while n > 0:
-                n, digit = divmod(n, 10)
-                mySum += digit ** 2
-            return mySum
-        
-        slow, fast = n, next_number(n)
-        while fast != 1 and slow != fast:
-            slow = next_number(slow)
-            fast = next_number(next_number(fast))
-        return fast == 1
-        
-        """
-        
+    """
+    def oneByOne(self, number):
+        myArray = []
+        while number:
+            myArray.append(number%10)
+            number = number // 10
+        return myArray
+
+    def helper(self, number):
+        myArray = self.oneByOne(number)
+        temp = 0
+        for i in myArray: temp += (i**2)
+        return temp
+
+    def isHappy(self, n: int) -> bool:
+        if n == 1: return True
+        turtle, rabbit = n, self.helper(n)
+        while turtle != rabbit:
+            if rabbit == 1 or turtle == 1:
+                return True
+            turtle = self.helper(turtle)
+            rabbit = self.helper(rabbit)
+            rabbit = self.helper(rabbit)
+        return False
+
+    def oneByOne(self, number):
+        myArray = []
+        while number:
+            myArray.append(number%10)
+            number = number // 10
+        return myArray
+    def isHappy(self, n: int) -> bool:
+        mySet = set()
+        while n != 1:
+            myArray = self.oneByOne(n)
+            temp = 0
+            for i in myArray: temp += (i**2)
+            n = temp
+            if n not in mySet: mySet.add(n)
+            else: return False
+        return True
+    """
+
+
+
+
