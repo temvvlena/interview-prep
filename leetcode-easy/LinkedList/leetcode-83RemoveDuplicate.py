@@ -25,6 +25,18 @@ class Solution:
             else: current = current.next
         return head
         """
+        Again tried to solve in 2022 March. Failed at first.
+        if not head: return head
+        cur = head
+        while cur and cur.next:
+            temp = cur.next
+            while temp and temp.val == cur.val:
+                temp = temp.next
+            cur.next = temp
+            cur = cur.next
+        return head
+        """
+        """
         # Solved in April
         if not head: return head
         cur = head
