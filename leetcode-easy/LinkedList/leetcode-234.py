@@ -51,4 +51,25 @@ class Solution:
             head = head.next
         return myList==myList[::-1]
         """
+
+
+        """
+        Solved on March 16, 2022
+        s = head
+        f = head
+        cur = None
+        while f is not None and f.next is not None:
+            f = f.next.next # 2 -> 1
+            temp = s.next # 2 -> 2 -> 1
+            s.next = cur # 1 -> None
+            cur = s # 1(pointer) -> None
+            s = temp # 1 -> None  Odoo bolohoor  2 -> 2 -> 1
+        if f is not None:
+            s = s.next
+        while s is not None:
+            if s.val != cur.val: return False
+            s = s.next
+            cur = cur.next
+        return True
+        """
     
