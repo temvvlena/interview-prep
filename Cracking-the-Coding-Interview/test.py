@@ -1,81 +1,66 @@
-'''
-Python program to design a DS that
-supports following operations
-in Theta(n) time:
-a) Insert
-b) Delete
-c) Search
-d) getRandom
-'''
+"""
+insert(x): Inserts an item x to the data structure if not already present.
+remove(x): Removes item x from the data structure if present.
+search(x): Searches an item x in the data structure.
+getRandom(): Returns a random element from current set of elements
+"""
 import random
 
-myList = []
+myNums = []
 myHash = {}
 
 def insert(num):
-
-    # If element is already present,
-    # then nothing has to be done
-    if num in myHash:
+    if isinstance(search(num), int):
         return
+    else:
+        myNums.append(num)
+        myHash[num] = len(myNums)-1
 
-    # Else put element at
-    # the end of the list
-    s = len(myList)
-    myList.append(num)
-
-    # Also put it into hash
-    myHash[num] = s
-
-# A Theta(1) function to remove an element
-# from MyDS data structure
 def remove(num):
+    if search(num) is None: return
+    else:
+        indexOfHashMapRemoved = myHash[num]
+        del myHash[num]
+        if indexOfHashMapRemoved == len(myNums)-1:
+            myNums.pop()
+        else:
+            myNums[indexOfHashMapRemoved], myNums[-1] = myNums[-1], myNums[indexOfHashMapRemoved]
+            myNums.pop()
+            myHash[myNums[indexOfHashMapRemoved]] = indexOfHashMapRemoved
 
-    # Check if element is present
-    indenum = myHash.get(num, None)
-    if indenum == None:
-        return
-
-    # If present, then remove
-    # element from hash
-    del myHash[num]
-
-    # Swap element with last element
-    # so that removal from the list
-    # can be done in O(1) time
-    size = len(myList)
-    last = myList[size - 1]
-    myList[indenum], myList[size - 1] = myList[size - 1], myList[indenum]
-
-    # Remove last element (This is O(1))
-    del myList[-1]
-
-    # Update hash table for
-    # new indenum of last element
-    myHash[last] = indenum
-
-# Returns a random element from MyDS
-def getRandom():
-    # Find a random indenum from 0 to size - 1
-    indenum = random.randrange(0, len(myList))
-
-    # Return element at randomly picked indenum
-    return myList[indenum]
-
-# Returns indenum of element
-# if element is present,
-# otherwise none
 def search(num):
     return myHash.get(num, None)
 
-# Driver Code
+def getRandom():
+    return myNums[random.randint(1, 10**4) % len(myNums)]
 
-insert(10)
-insert(20)
 insert(30)
-insert(40)
-print(search(30))
-remove(20)
-insert(50)
-print(search(50))
+insert(30)
+insert(30)
+insert(1)
+insert(2)
+insert(3)
+insert(4)
+insert(47)
+insert(53)
+insert(444)
+insert(4444)
+insert(54443)
+remove(30)
+remove(30)
+remove(30)
+remove(30)
+remove(47)
+remove(47)
+remove(47)
+remove(444)
+remove(54443)
+print(getRandom())
+print(getRandom())
+print(getRandom())
+print(getRandom())
+print(getRandom())
+print(getRandom())
+print(getRandom())
+print(getRandom())
 print(getRandom())
