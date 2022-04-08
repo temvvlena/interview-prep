@@ -1,17 +1,53 @@
 """
 https://leetcode.com/problems/add-binary/
-Given two binary strings a and b, return their sum as a binary string.
-Example 1:
-Input: a = "11", b = "1"
-Output: "100"
-Example 2:
-Input: a = "1010", b = "1011"
-Output: "10101"
+Add Binary
 """
 class Solution:
-    def addBinary(self, a, b):
-        return bin((int(a, 2)+int(b, 2)))[2:]
-            
+    def addBinary(self, a: str, b: str) -> str:
+
+        #print(int(a, 2) + int(b, 2))
+        #return '{0:b}'.format(int(a, 2) + int(b, 2))
+
+        """
+        Your input
+        "1111"
+        "1011"
+
+         1
+        1111  line 16
+        1101  line 17
+        ----
+        01
+
+        11 a  --> 11
+         1 b  --> 1
+        """
+        res = []
+        carry = 0
+        a = a[::-1]
+        b = b[::-1]
+        i = 0
+        j = 0
+        temp = 0
+        while i < len(a) or j < len(b):
+            temp = carry
+            if i < len(a):
+                temp += int(a[i])
+            if j < len(b):
+                temp += int(b[j])
+            carry = 0
+            if temp == 2:
+                carry = 1
+                temp = 0
+            if temp == 3:
+                carry = 1
+                temp = 1
+            res.append(str(temp))
+            i += 1
+            j += 1
+        if carry == 1:
+            res.append(str(carry))
+        return "".join(res[::-1])
         """"
         a, b, mySum = int(a, 2), int(b, 2), 0
         while b:
