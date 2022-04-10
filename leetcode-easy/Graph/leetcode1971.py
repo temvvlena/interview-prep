@@ -1,6 +1,27 @@
 """
 https://leetcode.com/problems/find-if-path-exists-in-graph/
 """
+
+class Solution:
+    def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
+        adj_list = [[] for _ in range(n)]
+        for i, j in edges:
+            adj_list[i].append(j) # [1,2][2,0][0,1]
+            adj_list[j].append(i)
+        stack = [start]
+        seen = set()
+        while stack:
+            top = stack.pop()
+            if top == end: return True
+            if top in seen:
+                continue
+            seen.add(top)
+            for i in adj_list[top]:
+                stack.append(i)
+        return False
+"""
+UnionFind Below
+"""
 class UnionFind:
     def __init__(self, n):
         self.root = [i for i in range(n)]
@@ -21,6 +42,6 @@ class UnionFind:
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
         uf = UnionFind(n)
-        for edge in edges:
-            uf.union(edge[0], edge[1])
+        for i, j in edges:
+            uf.union(i, j)
         return uf.find(source)== uf.find(destination)
