@@ -58,3 +58,4 @@ class Solution:
         paths, path = [], []
         dfs(0)
         return paths
+
