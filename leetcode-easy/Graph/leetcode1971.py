@@ -19,6 +19,7 @@ class Solution:
             for i in adj_list[top]:
                 stack.append(i)
         return False
+
 """
 UnionFind Below
 """
