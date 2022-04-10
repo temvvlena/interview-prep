@@ -2,6 +2,27 @@
 https://leetcode.com/problems/find-if-path-exists-in-graph/
 """
 
+# BFS
+from collections import deque
+class Solution:
+    def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
+        adj_list = [[] for _ in range(n)]
+        for i,j in edges:
+            adj_list[i].append(j)
+            adj_list[j].append(i)
+        q = deque([start])
+        seen = set([start])
+        while q:
+            node = q.popleft()
+            if node == end:
+                return True
+            for neighbor in adj_list[node]:
+                if neighbor not in seen:
+                    seen.add(neighbor)
+                    q.append(neighbor)
+        return False
+
+# DFS
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
         adj_list = [[] for _ in range(n)]
