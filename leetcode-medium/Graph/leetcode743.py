@@ -26,3 +26,5 @@ def networkDelayTime(times, n: int, k: int) -> int:
     return max_cost if len(visited) == n else -1
 
 print(networkDelayTime([[2,1,1],[2,3,1],[3,4,1]],4,2))
+
+
