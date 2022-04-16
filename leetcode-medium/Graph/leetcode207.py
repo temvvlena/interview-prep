@@ -2,10 +2,15 @@
 https://leetcode.com/problems/course-schedule/
 """
 from collections import defaultdict, deque
+from typing import List
+
+
 class GNode(object):
     def __init__(self):
         self.inDegrees = 0
         self.outNodes = []
+
+
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         graph = defaultdict(GNode)
