@@ -23,6 +23,8 @@ Example 2:
 Input: n = 2
 Output: false
 """
+
+
 class Solution:
     def isHappy(self, n: int) -> bool:
 
@@ -39,6 +41,7 @@ class Solution:
             n = get_next(n)
 
         return n == 1
+
     """
     def oneByOne(self, number):
         myArray = []
@@ -81,7 +84,3 @@ class Solution:
             else: return False
         return True
     """
-
-
-
-
