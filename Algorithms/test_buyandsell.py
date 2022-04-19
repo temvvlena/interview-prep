@@ -26,9 +26,10 @@ def test_many_orders():
     for index in range(len(buyList)):
         order.buy_book(buyList[index])
         order.sell_book(sellList[index])
-    print(order.buyOffers, order.sellOffers)
-    assert len(order.buyOffers) == 4
-    assert len(order.sellOffers) == 4
+    assert len(order.buyOffers) == 3
+    assert len(order.sellOffers) == 3
+    assert order.buyOffers == [-100, -90, -99]
+    assert order.sellOffers == [114, 119, 115]
 
 
 

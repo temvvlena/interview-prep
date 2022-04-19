@@ -44,7 +44,7 @@ class TheoryOfCrypto:
                 print(f'\n Match occurred {buyPrice} wants to buy {minimumSellOffer} \n')
                 heappop(self.sellOffers)
             else:
-                heappush(self.buyOffers, buyPrice)
+                heappush(self.buyOffers, -buyPrice)
 
     def sell_book(self, sellPrice):
         if not self.buyOffers:
@@ -57,17 +57,6 @@ class TheoryOfCrypto:
                 heappop(self.buyOffers)
             else:
                 heappush(self.sellOffers, sellPrice)
-
-        """
-        self.buyOffers = heapify(self.buyOffers)
-        self.buyOffers.heapq.heappush(sellPrice)
-        maxPriceFromBuyOffer = self.buyOffers[-1]
-        if maxPriceFromBuyOffer < sellPrice:
-            self.sellOffers.append(sellPrice)
-        else:
-            buy_match = self.buyOffers.heapq.heappop()
-            print(f'Matched+{buy_match} and {sellPrice}')
-        """
 
 
 order = TheoryOfCrypto()
