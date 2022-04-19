@@ -15,7 +15,7 @@ sell -> []
 input = 109
 
 
-OfferstoBUY: [$100, $100, $99, $99, $97, $90, 120]
+OfferstoBUY: [$100, $100, $99, 120, $97, $90, 120]
 
 OfferstoSELL:[$109, $110, $110, $114, $115$, 119, 80]   =>
 
@@ -27,18 +27,38 @@ Input = 109
 """
 
 from heapq import heappush, heappop, heapify
+
+
 class TheoryOfCrypto:
     def __init__(self):
-        self.buyOffers = heapify([])
+        self.buyOffers = []
         self.sellOffers = []
 
     def buy_book(self, buyPrice):
         if not self.sellOffers:
             self.buyOffers.append(-buyPrice)
+        else:
+            heapify(self.sellOffers)
+            minimumSellOffer = self.sellOffers[0]
+            if buyPrice > minimumSellOffer:
+                print(f'\n Match occurred {buyPrice} wants to buy {minimumSellOffer} \n')
+                heappop(self.sellOffers)
+            else:
+                heappush(self.buyOffers, buyPrice)
 
     def sell_book(self, sellPrice):
         if not self.buyOffers:
             self.sellOffers.append(sellPrice)
+        else:
+            heapify(self.buyOffers)
+            maximumBuyOffer = -self.buyOffers[0]
+            if maximumBuyOffer > sellPrice:
+                print(f'\n Match occured {maximumBuyOffer} wants to buy {sellPrice} \n')
+                heappop(self.buyOffers)
+            else:
+                heappush(self.sellOffers, sellPrice)
+
+        """
         self.buyOffers = heapify(self.buyOffers)
         self.buyOffers.heapq.heappush(sellPrice)
         maxPriceFromBuyOffer = self.buyOffers[-1]
@@ -47,11 +67,12 @@ class TheoryOfCrypto:
         else:
             buy_match = self.buyOffers.heapq.heappop()
             print(f'Matched+{buy_match} and {sellPrice}')
+        """
 
 
 order = TheoryOfCrypto()
 order.buy_book(100)
-order.sell_book(109)
-order.buy_book(111)
-
-
+order.buy_book(109)
+order.sell_book(111)
+order.sell_book(90)
+order.buy_book(200)
