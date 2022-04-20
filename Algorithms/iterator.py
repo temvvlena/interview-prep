@@ -1,3 +1,13 @@
+"""
+Simple Iterator from list
+Iterator from another Iterator
+Merge Itrterators in Round Robin fashion
+Merge Iterator from iterator of iterators in Round Robin fashion
+Merge Iterator from iterator of iterators one after another
+Step Iterator using start / end / step => Handle scenarios
+Given a list of values, create a infinite cyclic iteratorv
+"""
+
 class Iterator:
     def __init__(self, nested_lists):
         self.flattened_list = []
