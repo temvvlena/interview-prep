@@ -34,22 +34,24 @@ What is the time complexity of your modified solution? What is the most time-con
 How to make sure the duplicated files you find are not false positive?
 """
 
+
 class Solution:
+
     def findDuplicate(self, paths: List[str]) -> List[List[str]]:
         myHash = {}
         for i in paths:
             aPath = i.split(" ")
             directory = aPath[0]
-            
+
             for j in range(1, len(aPath)):
                 startRange = aPath[j].index('(')
                 endRange = aPath[j].index(')')
-                if aPath[j][startRange+1:endRange] not in myHash:
-                    myHash[aPath[j][startRange+1:endRange]] = [directory + "/" + aPath[j][0:startRange]]
+                if aPath[j][startRange + 1:endRange] not in myHash:
+                    myHash[aPath[j][startRange + 1:endRange]] = [directory + "/" + aPath[j][0:startRange]]
                 else:
-                    myHash[aPath[j][startRange+1:endRange]] += [directory + "/" + aPath[j][0:startRange]]
-        res = []              
-        for aKey, aValue in myHash.items(): 
+                    myHash[aPath[j][startRange + 1:endRange]] += [directory + "/" + aPath[j][0:startRange]]
+        res = []
+        for aKey, aValue in myHash.items():
             if len(aValue) > 1:
                 res.append(aValue)
         return res
