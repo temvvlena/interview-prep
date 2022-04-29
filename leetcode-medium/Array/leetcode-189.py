@@ -18,31 +18,32 @@ rotate 3 steps to the right: [5,6,7,1,2,3,4]
 """
 
 # Most Optimal Solution
+from typing import List
 
 
 class Solution:
-    def reverse(self, nums: list, start: int, end: int) -> None:
-        """
-        1,2,3,4,5,6,7
-        ^           ^
-        """
-        while start <= end:
-            nums[start], nums[end] = nums[end], nums[start]
-            start += 1
-            end -= 1
+    class Solution:
+        def rotateArray(self, index1, index2, nums):
+            while index1 < index2:
+                nums[index1], nums[index2] = nums[index2], nums[index1]
+                index1 += 1
+                index2 -= 1
 
-    def rotate(self, nums: List[int], k: int) -> None:
-        """
-        1,2,3,4,5,6,7
-        7,6,5,4,3,2,1
-        5,6,7,1,2,3,4
-        """
-        n = len(nums)
-        k %= n
+        def rotate(self, nums: List[int], k: int) -> None:
+            """
+            [5,6,7,4,1,2,3] k = 3
+                         ^
+                  ^
 
-        self.reverse(nums, 0, n-1)
-        self.reverse(nums, 0, k-1)
-        self.reverse(nums, k, n-1)
+            [5,6,7,1,2,3,4]
+
+
+            """
+            k %= len(nums)
+            n = len(nums)
+            self.rotateArray(0, n - 1, nums)
+            self.rotateArray(0, k - 1, nums)
+            self.rotateArray(k, n - 1, nums)
 
 
 class Solution:
