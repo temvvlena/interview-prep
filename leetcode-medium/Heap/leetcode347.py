@@ -3,6 +3,7 @@ https://leetcode.com/problems/top-k-frequent-elements/
 Top K Frequent Elements
 """
 from collections import Counter
+from typing import List
 
 
 class Solution:
