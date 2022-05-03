@@ -73,3 +73,74 @@ transition_graph(logs1) # =>
   I could barely complete the first follow-up but the interviewer seemed satisfied. Good to know that you got the offer.
   It gives me hope as well.
 """
+
+"""
+
+
+logs1 = [
+    ["58523", "user_1", "resource_1"],
+    ["62314", "user_2", "resource_2"],
+    ["54001", "user_1", "resource_3"],
+    ["200", "user_6", "resource_5"],
+    ["215", "user_6", "resource_4"],
+    ["54060", "user_2", "resource_3"],
+    ["53760", "user_3", "resource_3"],
+    ["58522", "user_22", "resource_1"],
+    ["53651", "user_5", "resource_3"],
+    ["2", "user_6", "resource_1"],
+    ["100", "user_6", "resource_6"],
+    ["400", "user_7", "resource_2"],
+    ["100", "user_8", "resource_6"],
+    ["54359", "user_1", "resource_3"],
+]
+{
+    '__START__': {'resource_1': 0.25, 'resource_2': 0.125, 'resource_3': 0.5, 'resource_6': 0.125},
+    'resource_1': {'resource_6': 0.333, '__END__': 0.667},
+    'resource_2': {'__END__': 1.0},
+    'resource_3': {'__END__': 0.4, 'resource_1': 0.2, 'resource_2': 0.2, 'resource_3': 0.2},
+    'resource_4': {'__END__': 1.0},
+    'resource_5': {'resource_4': 1.0},
+    'resource_6': {'__END__': 0.5, 'resource_5': 0.5}
+}
+"""
+
+"""
+Second Question:
+[[1,2,3],[4,5],[6],[],[7,8,9]]
+"""
+
+# myList = \
+#     [
+#         [1, 2, 3],
+#         [4, 5],
+#         [6],
+#         [],
+#         [7, 8, 9]
+#     ]
+# res = []
+# for row in range(len(myList)):
+#     curRowLength = len(myList[row])
+#     for col in range(len(myList[0])):
+#         if curRowLength > col:
+#             res.append(myList[row][col])
+#         else:
+#             continue
+myList = \
+    [
+        [1, [2, [3]]],
+        [4, 5],
+        [6],
+        [],
+        [7, 8, 9]
+    ]
+
+
+def flatten_array(nums):
+    if not nums:
+        return nums
+    if isinstance(nums[0], list):
+        return flatten_array(nums[0]) + flatten_array(nums[1:])
+    return nums[:1] + flatten_array(nums[1:])
+
+
+print(flatten_array(myList))
