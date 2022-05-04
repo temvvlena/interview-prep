@@ -7,22 +7,14 @@ class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
         """
         Recursively
-        1 -> 2 -> 3 -> 4 -> None
-        if not head or not head.next: return head
-        p = self.reverseList(head.next)
-        head.next.next=head
-        head.next = None
-        return p
-        Iterate
-        1 -> 2 -> 3 -> 4 -> None
-        null <- 1 
-        prev = None
-        while not head:
-            temp = head.next
-            head = prev
-            prev = head
-            temp = head
-        return prev
+        class Solution:
+            def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+                if not head or head.next is None:
+                    return head
+                p = self.reverseList(head.next)
+                head.next.next = head
+                head.next = None
+                return p
         """
         previousNode = None
         while head is not None:
@@ -31,7 +23,3 @@ class Solution:
             previousNode = head
             head = temp
         return previousNode
-            
-
-        
-        
