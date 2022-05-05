@@ -29,10 +29,10 @@ class BlockSize:
         for i in range(len(feeOverSize)):
             totalProfit += feeOverSize[i][1] * knapsack[feeOverSize[i][0] - 1]
             totalWeight += feeOverSize[i][2] * knapsack[feeOverSize[i][0] - 1]
-        print(totalProfit, totalWeight)
+        return f"Total max profit is {totalProfit} and total weight used {totalWeight}"
 
 
 t = [(1, 10, 2), (2, 5, 3), (3, 15, 5), (4, 7, 7), (5, 6, 1), (6, 18, 4), (7, 3, 1)]
 blockSize = 15
 a = BlockSize(t, blockSize)
-a.getMaximumFee()
+print(a.getMaximumFee())
