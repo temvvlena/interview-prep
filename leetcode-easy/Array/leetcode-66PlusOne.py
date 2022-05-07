@@ -20,6 +20,8 @@ Example 3:
 Input: digits = [0]
 Output: [1]
 """
+
+
 # If the last element is 9 make it 0. Else, add 1. After that, return [1] + digits will make it [1, 0]
 # Time complexity : N
 # Space complexity : N. If it contains 9 else 1
@@ -27,12 +29,30 @@ Output: [1]
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         if digits == [0]: return [1]
-        i = len(digits)-1
+        i = len(digits) - 1
         while i >= 0:
             temp = digits[i]
-            if temp == 9: digits[i] = 0
+            if temp == 9:
+                digits[i] = 0
             else:
                 digits[i] += 1
                 return digits
             i -= 1
-        return [1]+digits
+        return [1] + digits
+
+
+"""
+Bruto Force
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        res = ''
+        for num in digits:
+            res+=str(num)
+        ans = int(res) + 1
+        ans = str(ans)
+        out = []
+        for i in ans:
+            out.append(int(i))
+        return out
+"""
