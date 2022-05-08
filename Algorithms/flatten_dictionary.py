@@ -75,10 +75,10 @@ def flatten_dictionary2(my_dictionary):
 
 def helper(myDict, item):
     for aKey, aValue in myDict.items():
-        if isinstance(aValue, dict):
-            helper(aValue, item)
-        else:
+        if not isinstance(aValue, dict):
             item.append(aValue)
+        else:
+            helper(aValue, item)
     return item
 
 
