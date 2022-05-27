@@ -41,11 +41,27 @@ Constraints:
 0 <= val <= 100
 """
 
+
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        slow = 0 
+        slow = 0
         for i in nums:
             if i != val:
                 nums[slow] = i
                 slow += 1
         return slow
+
+
+def removeElement(self, nums: List[int], val: int) -> int:
+    """
+    0, 1, 0, 3, 0, 0, 4, 4, _,   --> remove 2
+slow                 ^
+other                   ^
+
+    """
+    slow = 0
+    for num in nums:
+        if num != val:
+            nums[slow] = num
+            slow += 1
+    return slow
