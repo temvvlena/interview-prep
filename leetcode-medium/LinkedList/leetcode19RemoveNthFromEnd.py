@@ -23,27 +23,26 @@ The number of nodes in the list is sz.
 0 <= Node.val <= 100
 1 <= n <= sz
 """
+
+
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         """
-        L-n+1
-        
-        dummy = ListNode(0)
+        counter = 0
+        dummy = ListNode(-1)
         dummy.next = head
-        lenght = 0 
-        first = head
-        while first:
-            lenght += 1
-            first = first.next
-        lenght -= n
-        first = dummy
-        while length > 0:
-            lenght -= 1
-            first = first.next
-        first.next = first.next.next
+        while head:
+            counter += 1
+            head = head.next
+        firstElements = counter - n
+        output = dummy
+        while firstElements > 0 and output.next:
+            firstElements -= 1
+            output = output.next
+        output.next = output.next.next
         return dummy.next
         """
         """
