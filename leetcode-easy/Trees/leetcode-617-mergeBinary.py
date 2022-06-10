@@ -17,6 +17,7 @@ The number of nodes in both trees is in the range [0, 2000].
 -104 <= Node.val <= 104
 """
 
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -25,11 +26,12 @@ The number of nodes in both trees is in the range [0, 2000].
 #         self.right = right
 # Time and Space O(N)
 class Solution:
-    def mergeTrees(self, root1: TreeNode, root2: TreeNode) -> TreeNode:
-        if not root1: return root2
-        if not root2: return root1
-        root3 = TreeNode()
-        root3.val = root1.val + root2.val
-        root3.left = self.mergeTrees(root1.left, root2.left)
-        root3.right = self.mergeTrees(root1.right, root2.right)
-        return root3
+    def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root1 is None:
+            return root2
+        if root2 is None:
+            return root1
+        root1.val += root2.val
+        root1.left = self.mergeTrees(root1.left, root2.left)
+        root1.right = self.mergeTrees(root1.right, root2.right)
+        return root1
