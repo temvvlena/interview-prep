@@ -22,17 +22,24 @@ first = 2
     
    [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]     
         """
-        
-        def backtrack(first = 0):
-            if first == n:
-                # Append the copy of the list
+
+        """
+        https://leetcode.com/problems/permutations/
+        46. Permutations
+        """
+
+
+class Solution:
+    def permute(self, nums=):
+        def backtrack(first=0):
+            if first == length:
                 output.append(nums[:])
-            for i in range(first, n):
+            for i in range(first, length):
                 nums[first], nums[i] = nums[i], nums[first]
                 backtrack(first + 1)
-                # Here's the backtracking algorithm works
-                nums[first], nums[i] = nums[i], nums[first]
-        n = len(nums)
+                nums[i], nums[first] = nums[first], nums[i]
+
         output = []
+        length = len(nums)
         backtrack()
         return output
