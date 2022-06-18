@@ -12,14 +12,16 @@ nums2 = [2,5,6],       n = 3
 
 Output: [1,2,2,3,5,6]
 """
+
+
 class Solution:
     def merge(self, nums1, m, nums2, n):
         """
         Do not return anything, modify nums1 in-place instead.
         """
         # (n+m)* log(n+m)
-        #nums1[:] = sorted(nums1[:m] + nums2)
-        
+        # nums1[:] = sorted(nums1[:m] + nums2)
+
         # Time complexity : (n+m)
         # Space complexity : m
         nums1_copy = nums1[:m]
@@ -43,8 +45,10 @@ class Solution:
         p2 = n - 1
         # set pointer for nums1
         p = m + n - 1
-        
+
         # while there are still elements to compare
+
+
 """
 while p1 >= 0 and p2 >= 0:
     if nums1[p1] < nums2[p2]:
@@ -78,21 +82,15 @@ nums1[:p2 + 1] = nums2[:p2 + 1]
 class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
-        [1,2,3,0,0,0]
-             ^     ^
-            p1     p
-        [2,5,6]
-             ^  
-             p2
+        Do not return anything, modify nums1 in-place instead.
         """
-        p1 = m - 1
-        p2 = n - 1
-        
-        for p in range(n+m-1, -1, -1):
-            if p2 < 0 : break
-            if p1>=0 and nums1[p1]>nums2[p2]:
-                nums1[p]=nums1[p1]
-                p1 -=1
+        p1, p2, p3 = m - 1, m + n - 1, n - 1
+        for p2 in range(m + n - 1, -1, -1):
+            if p3 < 0:
+                break
+            if p1 >= 0 and nums1[p1] > nums2[p3]:
+                nums1[p2] = nums1[p1]
+                p1 -= 1
             else:
-                nums1[p] = nums2[p2]
-                p2 -= 1
+                nums1[p2] = nums2[p3]
+                p3 -= 1
