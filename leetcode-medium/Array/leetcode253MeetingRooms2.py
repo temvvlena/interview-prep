@@ -37,14 +37,14 @@ class Solution:
         return len(free_rooms)
 """
 
+
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        if len(intervals) == 1: return 1
-        s_int = sorted(intervals, key=lambda x: x[0])
-        e_int = sorted(intervals, key=lambda x: x[1])
-        count = 1
-        n = 0
-        for i in range(1, len(s_int)): 
-            if s_int[i][0] < e_int[n][1]: count += 1
-            else: n += 1
-        return count
+        intervals.sort(key=lambda x: x[0])
+        free_rooms = [intervals[0][1]]
+        heapq.heapify(free_rooms)
+        for start, end in intervals[1:]:
+            if start >= free_rooms[0]:
+                heapq.heappop(free_rooms)
+            heapq.heappush(free_rooms, end)
+        return len(free_rooms)
