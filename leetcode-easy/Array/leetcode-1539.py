@@ -6,6 +6,20 @@ https://leetcode.com/problems/kth-missing-positive-number/
 
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
+        j = 0
+        res = []
+        for i in range(arr[-1] + k):
+            if j < len(arr) and i + 1 != arr[j]:
+                res.append(i + 1)
+            elif j < len(arr):
+                j += 1
+            else:
+                res.append(i + 1)
+        return res[k - 1]
+
+
+class Solution:
+    def findKthPositive(self, arr: List[int], k: int) -> int:
         if k < arr[0]:
             return k
         res = []
