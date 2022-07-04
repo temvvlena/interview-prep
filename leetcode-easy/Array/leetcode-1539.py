@@ -19,7 +19,7 @@ class Solution:
 
 
 class Solution:
-    def findKthPositive(self, arr: List[int], k: int) -> int:
+    def findKthPositive(self, arr, k: int) -> int:
         if k < arr[0]:
             return k
         res = []
