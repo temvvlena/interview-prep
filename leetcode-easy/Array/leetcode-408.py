@@ -13,11 +13,6 @@ class Solution:
                 counter = 0
                 while j < len(abbr) and abbr[j].isdigit():
                     counter = counter * 10 + int(abbr[j])
-                    test = str(counter)
-                    c = 0
-                    for num in test:
-                        if num == "0": c += 1
-                    if c >= 2: return False
                     j += 1
                 i += counter
             else:
