@@ -33,27 +33,28 @@ The number of nodes in the tree is in the range [0, 105].
 #         self.right = right
 # Time and Space O(N)
 from collections import deque
+
+
 class Solution:
-    def minDepth(self, root: TreeNode) -> int:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
         if not root: return 0
         q = deque()
         q.append(root)
-        minumumNumber = 1
+        minDepth = 0
         while q:
-            for i in range(len(q)):
-                temp = q.popleft()
-                if temp.left is None and temp.right is None:
-                    return minumumNumber
-                if temp.left:
-                    q.append(temp.left)
-                if temp.right:
-                    q.append(temp.right)
-            minumumNumber += 1
-        return minumumNumber
-                
+            for _ in range(len(q)):
+                cur = q.popleft()
+                if not cur.left and not cur.right:
+                    return minDepth + 1
+                if cur.left:
+                    q.append(cur.left)
+                if cur.right:
+                    q.append(cur.right)
+            minDepth += 1
+
 #         if not root: return 0
 #         if root.left is None and root.right is None:  return 1
 #         if root.left is None: return self.minDepth(root.right)+1
 #         if root.right is None: return self.minDepth(root.left)+1
-        
-#         return min(self.minDepth(root.left), self.minDepth(root.right))+1 
+
+#         return min(self.minDepth(root.left), self.minDepth(root.right))+1
