@@ -6,33 +6,29 @@ https://leetcode.com/problems/product-of-two-run-length-encoded-arrays/
 
 class Solution:
     def findRLEArray(self, encoded1: List[List[int]], encoded2: List[List[int]]) -> List[List[int]]:
-        product_encoded = []
-
-        e1_index = 0
-        e2_index = 0
-
+        e1_index, e2_index = 0, 0
+        res = []
         while e1_index < len(encoded1) and e2_index < len(encoded2):
             e1_val, e1_freq = encoded1[e1_index]
             e2_val, e2_freq = encoded2[e2_index]
 
-            product_val = e1_val * e2_val
-            product_freq = min(e1_freq, e2_freq)
+            product = e1_val * e2_val
 
-            encoded1[e1_index][1] -= product_freq
-            encoded2[e2_index][1] -= product_freq
+            min_freq = min(e1_freq, e2_freq)
 
-            if encoded1[e1_index][1] == 0:
-                e1_index += 1
-
-            if encoded2[e2_index][1] == 0:
-                e2_index += 1
-
-            if not product_encoded or product_encoded[-1][0] != product_val:
-                product_encoded.append([product_val, product_freq])
+            if not res or product != res[-1][0]:
+                res.append([product, min_freq])
             else:
-                product_encoded[-1][1] += product_freq
+                res[-1][1] += min_freq
 
-        return product_encoded
+            encoded1[e1_index][1] -= min_freq
+            encoded2[e2_index][1] -= min_freq
+
+            if e1_freq == 0:
+                e1_index += 1
+            if e2_freq == 0:
+                e2_index += 1
+        return res
         """
         Time Limit Exceeded
         def decodeArray(anArray):
