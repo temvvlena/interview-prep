@@ -17,22 +17,27 @@ Input: root = []
 Output: true
 """
 
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution: 
+class Solution:
     def __init__(self):
         self.balanced = True
+
     def isBalanced(self, root: TreeNode) -> bool:
         if not root: return True
+
         def getHeight(myTree):
             if myTree is None: return 0
             left = getHeight(myTree.left)
             right = getHeight(myTree.right)
-            if abs(left-right) > 1: self.balanced = False
-            return max(left, right)+1
+            if abs(left - right) > 1:
+                self.balanced = False
+            return max(left, right) + 1
+
         check = getHeight(root)
         return self.balanced
