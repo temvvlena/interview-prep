@@ -23,10 +23,50 @@ The number of nodes in the tree is in the range [0, 104].
 #         self.val = val
 #         self.left = left
 #         self.right = right
+"""
+https://leetcode.com/problems/maximum-depth-of-binary-tree/
+104. Maximum Depth of Binary Tree
+"""
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+from collections import deque
+
+
 class Solution:
-    def maxDepth(self, root: TreeNode) -> int:   
-        res = 0
-        if root is None: return 0
-        leftMax = self.maxDepth(root.left)
-        rightMax = self.maxDepth(root.right)
-        return max(leftMax, rightMax)+1
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        # bfs solution
+        if not root:
+            return 0
+        if root.left is None and root.right is None:
+            return 1
+
+        depth, level = 0, deque([root])
+        while level:
+            depth += 1
+            for i in range(len(level)):
+                node = level.popleft()
+                if node.left:
+                    level.append(node.left)
+                if node.right:
+                    level.append(node.right)
+        return depth
+
+
+"""
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root: 
+            return 0 
+        else:
+            left_height = self.maxDepth(root.left)
+            rigth_height = self.maxDepth(root.right)
+            return max(left_height, rigth_height)+1
+"""
