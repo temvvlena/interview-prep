@@ -25,6 +25,8 @@ Return:
     "FizzBuzz"
 ]
 """
+
+
 class Solution:
     def fizzBuzz(self, n):
         # 45 / 3 * 5 == 4 + 5 = 9 
@@ -37,11 +39,11 @@ class Solution:
         # 45 % 5 = 0
         # 45 % 
         # 15 
-        #{3: Fizz, 4: Bam, 5: Buzz, 6: Bash, 7: Fuzz, 8: Fazz, 9: Fezz}
+        # {3: Fizz, 4: Bam, 5: Buzz, 6: Bash, 7: Fuzz, 8: Fazz, 9: Fezz}
         myList = []
-        for i in range(1, n+1):
+        for i in range(1, n + 1):
             if i % 15 == 0:
-                myList.append("FizzBuzz")  
+                myList.append("FizzBuzz")
             elif i % 3 == 0:
                 myList.append("Fizz")
             elif i % 5 == 0:
@@ -49,6 +51,8 @@ class Solution:
             else:
                 myList.append(str(i))
         return myList
+
+
 """
 # More Dynamic
 myList = []
@@ -62,5 +66,18 @@ for i in range(1, n+1):
         num_ans_str = str(i)
     myList.append(num_ans_str)
 return myList
+
+def fizzBuzz(self, n: int) -> List[str]:
+    ans = []
+    myDict = {3: "Fizz", 5: "Buzz"}
+    for index in range(1, n+1):
+        if index % 3 == 0 and index % 5 == 0:
+            ans.append("FizzBuzz")
+        elif index % 5 == 0:
+            ans.append(myDict[5])
+        elif index % 3 == 0:
+            ans.append(myDict[3])
+        else:
+            ans.append(str(index))
+    return ans
 """
-        
